@@ -1,0 +1,9 @@
+.dropdown-countries {
+  overflow-y: auto;
+  max-height: 200px;
+  border: 1px solid black;
+}
+
+mat-form-field {
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Fill form field</mat-label>
+    <input
+      matInput
+      placeholder="Placeholder"
+    >
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+</p>
+
+<div class="dropdown-countries">
+  @for(country of countryNames(); track country) {
+  <p>{{ country.name.common }}</p>
+  }
+</div>
