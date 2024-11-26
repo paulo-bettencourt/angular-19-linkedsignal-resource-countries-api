@@ -1,4 +1,10 @@
-import { Component, computed, effect, resource } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  linkedSignal,
+  resource,
+} from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -29,6 +35,9 @@ export class SearchComponent {
       console.log('countryNames:', this.countryNames());
     });
   }
+
+  selectedOption = linkedSignal(() => this.countries.value());
+
   async fetchCountries(key: string) {
     const res = await fetch(`https://restcountries.com/v3.1/all?fields=${key}`);
     return res.json() as Promise<Country[]>;
@@ -39,4 +48,15 @@ export class SearchComponent {
     request: () => this.PARAM_KEYWORD,
     loader: ({ request }) => this.fetchCountries(request),
   });
+
+  onCountrySearch(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const countryFiltered = this.countryNames()?.filter((country) =>
+      country.name.common
+        .toLowerCase()
+        .includes(inputElement.value.toLowerCase())
+    );
+    this.selectedOption.set(countryFiltered);
+    console.log('country: ', countryFiltered);
+  }
 }

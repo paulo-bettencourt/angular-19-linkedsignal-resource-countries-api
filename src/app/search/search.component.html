@@ -4,6 +4,7 @@
     <input
       matInput
       placeholder="Placeholder"
+      (input)="onCountrySearch($event)"
     >
     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     <mat-hint>Hint</mat-hint>
@@ -11,7 +12,7 @@
 </p>
 
 <div class="dropdown-countries">
-  @for(country of countryNames(); track country) {
+  @for(country of selectedOption(); track country) {
   <p>{{ country.name.common }}</p>
   }
 </div>
