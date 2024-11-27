@@ -29,14 +29,8 @@ export interface Country {
 })
 export class SearchComponent {
   countryNames = computed(() => this.countries.value());
-  PARAM_KEYWORD = 'name';
-  constructor() {
-    effect(() => {
-      console.log('countryNames:', this.countryNames());
-    });
-  }
-
   selectedOption = linkedSignal(() => this.countries.value());
+  PARAM_KEYWORD = 'name';
 
   async fetchCountries(key: string) {
     const res = await fetch(`https://restcountries.com/v3.1/all?fields=${key}`);

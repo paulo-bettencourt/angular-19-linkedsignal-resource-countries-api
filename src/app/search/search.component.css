@@ -7,3 +7,13 @@
 mat-form-field {
   width: 100%;
 }
+
+
+.selected-country {
+  padding: 1%;
+}
+
+.selected-country:hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
