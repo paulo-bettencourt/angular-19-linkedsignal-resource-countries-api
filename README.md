@@ -16,3 +16,11 @@ This Angular app demonstrates the usage of the new **signal-based API** introduc
 3. **Reactive State**: Automatically updates the UI with `linkedSignal` and `computed`.
 
 ## Screenshots 📷
+
+![ezgif-3-5790fe33e6](https://github.com/user-attachments/assets/54acf8ed-f3b2-4b9c-adc6-f329b13d1708)
+
+![Screenshot 2024-11-27 at 14 16 36](https://github.com/user-attachments/assets/2cd396b2-0248-449d-bf2f-ef2758ec2da6)
+
+![Screenshot 2024-11-27 at 14 16 51](https://github.com/user-attachments/assets/88bc844f-6760-4183-9eb4-95ce2f3eb0d0)
+
+![Screenshot 2024-11-27 at 14 17 16](https://github.com/user-attachments/assets/c1508552-0589-4aed-be99-0777867f78db)
