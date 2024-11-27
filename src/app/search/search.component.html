@@ -1,18 +1,45 @@
-<p>
+<div class="container">
+  <h1>Countries API Rest</h1>
+  <h2>Angular v19 Signal, LinkedSignal && Resource</h2>
+  <mat-radio-group
+    aria-label="Select an option"
+    [(ngModel)]="radioValue"
+    (change)="onSelectionChange(radioValue)"
+  >
+    <mat-radio-button value="common">Common Name</mat-radio-button>
+    <mat-radio-button value="official">Official Name</mat-radio-button>
+  </mat-radio-group>
+
   <mat-form-field appearance="fill">
-    <mat-label>Fill form field</mat-label>
+    <mat-label>Please write down the name of a country</mat-label>
     <input
       matInput
-      placeholder="Placeholder"
       (input)="onCountrySearch($event)"
-    >
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
+    />
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-</p>
 
-<div class="dropdown-countries">
-  @for(country of selectedOption(); track country) {
-  <p class="selected-country">{{ country.name.common }}</p>
-  }
+  @if(radioValue === 'common') {
+  <div class="dropdown-countries">
+    @for(country of selectedOption(); track country) {
+    <p
+      class="selected-country"
+      (click)="onCountrySelect(country.name.common)"
+    >
+      {{ country.name.common }}
+    </p>
+    }
+  </div>
+  } @else {
+  <div class="dropdown-countries">
+    @for(country of selectedOption(); track country) {
+    <p
+      class="selected-country"
+      (click)="onCountrySelect(country.name.official)"
+    >
+      {{ country.name.official }}
+    </p>
+    }
+  </div>
+  } <h1>Selected Country: <em>{{ selectedCountry() }}</em></h1>
 </div>
